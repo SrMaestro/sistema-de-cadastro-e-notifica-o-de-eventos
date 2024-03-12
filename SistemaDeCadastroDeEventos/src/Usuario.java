@@ -47,14 +47,35 @@ public class Usuario {
         this.email = email;
     }
 
-    public String lerNome() {
+    //Metodo para ler os dados do usuario e preencher os atributos
+    public String lerDados() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite seu nome :");
          this.nome = scanner.nextLine();
 
-        System.out.println(nome);
+        System.out.println("Digite seu sobre nome");
+        this.sobrenome = scanner.nextLine();
 
-        return nome;
+        System.out.println("Digite seu telefone :");
+        this.tel = scanner.nextLine();
+
+        System.out.println("Digite seu @email:");
+        this.email = scanner.nextLine();
+
+        return nome ;
+
     }
+
+    // Método para imprimir os dados
+    public void imprimirDados() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Sobrenome: " + sobrenome);
+        System.out.println("Telefone: " + tel);
+        System.out.println("Email: " + email);
+    }
+
+
+
+
 }
