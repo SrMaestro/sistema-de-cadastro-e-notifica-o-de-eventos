@@ -4,36 +4,28 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
-        //Cria uma lista para armazenar usuarios
-
-        List<Usuario> listaPessoas = new ArrayList<>();
+        List<Usuario> listaUsuarios = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
-        //Loop para adicionar pessoas a lista
+        while (true) {
+            // Chama o método lerDados() que retorna um objeto Usuario preenchido
+            Usuario novoUsuario = Usuario.lerDados();
 
-        while (true){
-            Usuario usuario = new Usuario();
-            usuario.lerDados(); // Le os dados do usuario e preenche o objeto
+            // Adiciona o novo usuário à lista
+            listaUsuarios.add(novoUsuario);
 
-            listaPessoas.add(usuario); // Adicionando o objeto Pessoa a lista
-            break;
-
+            System.out.println("Deseja adicionar outro usuário? (S/N)");
+            String resposta = scanner.nextLine();
+            if (!resposta.equalsIgnoreCase("S")) {
+                break;
+            }
         }
 
-        //imprima os dados de todas a pessoas da lista
-        for (Usuario usuario : listaPessoas) {
-            usuario.imprimirDados(); // Imprime os dados da pessoa
-            System.out.println(); // Adiciona uma linha em branco entre cada pessoa
+        for (Usuario usuario : listaUsuarios) {
+            usuario.imprimirDados();
+            System.out.println();
         }
 
-        for (int i = 0; i < listaPessoas.size(); i++) {
-            System.out.println("ID: " + i);
-            listaPessoas.get(i).imprimirDados(); // Imprime os dados do usuário
-            System.out.println(); // Adiciona uma linha em branco entre cada usuário
-        }
-
-
+        System.out.println(listaUsuarios);
     }
 }

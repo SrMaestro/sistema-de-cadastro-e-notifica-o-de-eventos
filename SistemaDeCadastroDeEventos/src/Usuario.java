@@ -6,6 +6,8 @@ public class Usuario {
     private String tel;
     private String email;
 
+    // Construtor privado para impedir a criação de objetos sem chamar o método lerDados()
+
 
     public Usuario() {
         this.nome = nome;
@@ -13,6 +15,9 @@ public class Usuario {
         this.tel = tel;
         this.email = email;
     }
+
+    // Construtor privado para impedir a criação de objetos sem chamar o método lerDados()
+    //private Usuario() {}
 
 
     public String getNome() {
@@ -48,23 +53,23 @@ public class Usuario {
     }
 
     //Metodo para ler os dados do usuario e preencher os atributos
-    public String lerDados() {
+    public static Usuario lerDados() {
         Scanner scanner = new Scanner(System.in);
+        Usuario usuario = new Usuario();
 
-        System.out.println("Digite seu nome :");
-         this.nome = scanner.nextLine();
+        System.out.println("Digite seu nome:");
+        usuario.nome = scanner.nextLine();
 
-        System.out.println("Digite seu sobre nome");
-        this.sobrenome = scanner.nextLine();
+        System.out.println("Digite seu sobrenome:");
+        usuario.sobrenome = scanner.nextLine();
 
-        System.out.println("Digite seu telefone :");
-        this.tel = scanner.nextLine();
+        System.out.println("Digite seu telefone:");
+        usuario.tel = scanner.nextLine();
 
-        System.out.println("Digite seu @email:");
-        this.email = scanner.nextLine();
+        System.out.println("Digite seu email:");
+        usuario.email = scanner.nextLine();
 
-        return nome ;
-
+        return usuario;
     }
 
     // Método para imprimir os dados
