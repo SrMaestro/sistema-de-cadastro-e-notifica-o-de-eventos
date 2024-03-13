@@ -14,6 +14,7 @@ public class Main {
             // Adiciona o novo usuário à lista
             listaUsuarios.add(novoUsuario);
 
+            //Estrutura para encerrar o interação com o usuario
             System.out.println("Deseja adicionar outro usuário? (S/N)");
             String resposta = scanner.nextLine();
             if (!resposta.equalsIgnoreCase("S")) {

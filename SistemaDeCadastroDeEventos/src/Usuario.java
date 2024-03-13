@@ -1,12 +1,17 @@
 import java.util.Scanner;
 
 public class Usuario {
+
+    private static int proximoId = 1; // contador para atribuir IDs únicos
+    private int id;
     private String nome;
     private String sobrenome;
     private String tel;
     private String email;
 
     // Construtor privado para impedir a criação de objetos sem chamar o método lerDados()
+
+
 
 
     public Usuario() {
@@ -16,8 +21,7 @@ public class Usuario {
         this.email = email;
     }
 
-    // Construtor privado para impedir a criação de objetos sem chamar o método lerDados()
-    //private Usuario() {}
+
 
 
     public String getNome() {
@@ -48,6 +52,22 @@ public class Usuario {
         return email;
     }
 
+    public static int getProximoId() {
+        return proximoId;
+    }
+
+    public static void setProximoId(int proximoId) {
+        Usuario.proximoId = proximoId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -57,23 +77,27 @@ public class Usuario {
         Scanner scanner = new Scanner(System.in);
         Usuario usuario = new Usuario();
 
+        // Atribuir ID único ao usuário
+        usuario.setId(proximoId++);
+
         System.out.println("Digite seu nome:");
-        usuario.nome = scanner.nextLine();
+        usuario.setNome(scanner.nextLine());
 
         System.out.println("Digite seu sobrenome:");
-        usuario.sobrenome = scanner.nextLine();
+        usuario.setSobrenome(scanner.nextLine());
 
         System.out.println("Digite seu telefone:");
-        usuario.tel = scanner.nextLine();
+        usuario.setTel(scanner.nextLine());
 
         System.out.println("Digite seu email:");
-        usuario.email = scanner.nextLine();
+        usuario.setEmail(scanner.nextLine());
 
         return usuario;
     }
 
     // Método para imprimir os dados
     public void imprimirDados() {
+        System.out.println("ID: " + id);
         System.out.println("Nome: " + nome);
         System.out.println("Sobrenome: " + sobrenome);
         System.out.println("Telefone: " + tel);
